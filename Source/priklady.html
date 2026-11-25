@@ -1,0 +1,86 @@
+<!doctype html><html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XMAT1 – zbierka riešených príkladov</title><link rel="stylesheet" href="study.css"><style>
+body{max-width:1050px;margin:auto;padding:24px;font:17px/1.7 system-ui,sans-serif}header,section{padding:24px;border-radius:16px;margin:16px 0;background:white}header h1{margin:0}.intro{color:#d5eaeb}nav{display:flex;flex-wrap:wrap;gap:12px}nav a{padding:4px 0}header a{color:#d5eaeb}h2{margin-top:0}h3{margin-bottom:4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.55 Consolas,monospace;background:#eff7f5;padding:15px;border-left:4px solid #5aa898;border-radius:6px}details{margin:12px 0 24px;padding:8px 14px;border-left:3px solid #76b3a7}summary{cursor:pointer;font-weight:700}li{margin:.35em 0}.exercise{margin:20px 0;padding-top:5px;border-top:1px solid #e1ece9}.callout{padding:12px 16px;background:#fff3da;border-radius:8px}button{font:inherit;padding:9px 14px;border-radius:7px;border:1px solid #176b63;background:#176b63;color:white;cursor:pointer}@media print{details:not([open])>*{display:block}body{background:white}section{break-inside:avoid}}
+</style></head><body><header><h1>Zbierka príkladov XMAT1</h1><p class="intro">Počítaj na papier: ku každému postupu nájdeš aj príklad na samostatné riešenie.</p><nav><a href="xmat1-krok-za-krokom.html">Sprievodca</a><a href="priprava-xmat1.html">Prehľad učiva</a><a href="#matice">Matice</a><a href="#det">Determinanty</a><a href="#sustavy">Sústavy</a><a href="#vektory">Vektory</a><a href="#relacie">Relácie</a><a href="#struktury">Štruktúry</a><a href="#test">Skúšobný test</a></nav></header>
+<section><h2>Ako s tým pracovať</h2><ol><li>Prečítaj zadanie a pokús sa ho vyriešiť na papier bez pomoci.</li><li>Otvor „Postup a riešenie“ a porovnaj každý krok, nie iba výsledok.</li><li>Pri chybe zakry postup a príklad po prestávke vyrieš znovu.</li><li>Na konci si daj zmiešaný test. Originálne zadané cvičenia zostávajú v lokálnych materiáloch.</li></ol><p class="callout">Ide o autorské precvičovacie príklady vychádzajúce z okruhov predmetu. Presný rozsah a bodovanie aktuálneho testu nie sú potvrdené.</p></section>
+<section id="matice"><h2>1. Matice – postupy a počítanie</h2><p><b>Rozmery:</b> A typu m×n má m riadkov a n stĺpcov. A+B existuje len pri rovnakých rozmeroch. AB existuje, keď počet stĺpcov A = počet riadkov B; výsledok má rozmery m×p. Pri výpočte AB násobíme riadok A stĺpcom B.</p>
+<div class="exercise"><h3>1.1 Sčítanie a násobenie skalárom</h3><pre>A = [ 1  −2  3 ]     B = [ 3  1 −1 ]
+    [−2   0  1 ]         [ 0  9 −3 ]
+Vypočítaj A+B a 2A−B.</pre><details><summary>Postup a riešenie</summary><p>Sčítame prvky na rovnakých pozíciách. Pri 2A−B najskôr vynásobíme každý prvok A číslom 2 a potom odčítame príslušný prvok B.</p><pre>A+B  = [ 1+3  −2+1   3−1 ] = [ 4 −1  2 ]
+       [−2+0   0+9   1−3 ]   [−2  9 −2 ]
+2A−B = [ 2−3  −4−1   6−(−1) ] = [−1 −5  7 ]
+       [−4−0   0−9   2−(−3) ]   [−4 −9  5 ]</pre></details></div>
+<div class="exercise"><h3>1.2 Násobenie obdĺžnikových matíc</h3><pre>A = [ 1 2 3 ]       B = [ 1 0 ]
+    [ 0 1 4 ]           [ 2 1 ]
+                        [ 0 2 ]
+Urči rozmery AB a vypočítaj ho.</pre><details><summary>Postup a riešenie</summary><p>A je 2×3, B je 3×2, takže AB existuje a je 2×2. Vypočítame všetky štyri prvky:</p><pre>(AB)₁₁ = 1·1+2·2+3·0 = 5
+(AB)₁₂ = 1·0+2·1+3·2 = 8
+(AB)₂₁ = 0·1+1·2+4·0 = 2
+(AB)₂₂ = 0·0+1·1+4·2 = 9
+AB = [ 5 8; 2 9 ].</pre><p>BA tiež existuje, ale má rozmer 3×3. Už podľa rozmeru vidno, že AB a BA nemôžu byť rovnaké.</p></details></div>
+<div class="exercise"><h3>1.3 Maticová rovnica</h3><pre>2A+3X=B, kde A=[1 2; 0 1], B=[5 4; 3 2]. Urči X.</pre><details><summary>Postup a riešenie</summary><pre>3X = B−2A = [5 4; 3 2] − [2 4; 0 2] = [3 0; 3 0]
+X = ⅓[3 0; 3 0] = [1 0; 1 0].</pre><p>Kontrola: 2A+3X=[2 4;0 2]+[3 0;3 0]=B.</p></details></div>
+<div class="exercise"><h3>1.4 Skús sám: násobenie</h3><pre>A=[1 2; 3 4], B=[2 1; 0 −1]. Vypočítaj AB aj BA.</pre><details><summary>Postup a riešenie</summary><pre>AB=[1·2+2·0   1·1+2·(−1); 3·2+4·0   3·1+4·(−1)]
+AB=[2 −1; 6 −1].
+BA=[2·1+1·3   2·2+1·4; 0·1+(−1)·3   0·2+(−1)·4]
+BA=[5 8; −3 −4].</pre></details></div></section>
+<section id="det"><h2>2. Determinant, inverzia a hodnosť</h2><p>Pre 2×2: det[a b;c d]=ad−bc. Pre 3×3 možno rozvíjať podľa prvého riadka so znamienkami + − +. Inverzia existuje, práve keď determinant štvorcovej matice nie je nula.</p>
+<div class="exercise"><h3>2.1 Determinant 3×3</h3><pre>A=[1 2 0; 0 1 1; 2 0 1]. Vypočítaj det A.</pre><details><summary>Postup a riešenie</summary><pre>det A = 1·det[1 1;0 1] − 2·det[0 1;2 1] + 0·det[0 1;2 0]
+      = 1·(1·1−1·0) − 2·(0·1−1·2)
+      = 1 − 2·(−2) = 5.</pre><p>Pri mínuse pred druhým členom pozorne sleduj znamienka.</p></details></div>
+<div class="exercise"><h3>2.2 Determinant elimináciou</h3><pre>A=[1 2 1; 2 5 3; 1 0 8].</pre><details><summary>Postup a riešenie</summary><pre>R₂ ← R₂−2R₁, R₃ ← R₃−R₁:
+[1 2 1; 0 1 1; 0 −2 7]
+R₃ ← R₃+2R₂:
+[1 2 1; 0 1 1; 0 0 9]
+det A=1·1·9=9.</pre><p>Použili sme len pripočítanie násobku iného riadka, ktoré nemení determinant. Výmena riadkov by zmenila znamienko; vynásobenie riadka číslom k by vynásobilo determinant číslom k.</p></details></div>
+<div class="exercise"><h3>2.3 Inverzná matica pomocou Gauss–Jordanovej metódy</h3><pre>A=[1 2; 3 7]. Nájdite A⁻¹.</pre><details><summary>Postup a riešenie</summary><pre>[A | I] = [1 2 | 1 0; 3 7 | 0 1]
+R₂ ← R₂−3R₁: [1 2 | 1 0; 0 1 | −3 1]
+R₁ ← R₁−2R₂: [1 0 | 7 −2; 0 1 | −3 1]
+A⁻¹=[7 −2; −3 1].</pre><p>Kontrola: det A=7−6=1 a AA⁻¹=[1 0;0 1]. Každá riadková úprava sa robí na celej rozšírenej matici.</p></details></div>
+<div class="exercise"><h3>2.4 Hodnosť matice</h3><pre>A=[1 2 3; 2 4 6; 1 1 1]. Urči h(A).</pre><details><summary>Postup a riešenie</summary><pre>R₂ ← R₂−2R₁: [1 2 3; 0 0 0; 1 1 1]
+R₃ ← R₃−R₁:  [1 2 3; 0 0 0; 0 −1 −2]
+Prehodíme posledné dva riadky: [1 2 3; 0 −1 −2; 0 0 0].
+Máme dva pivoty → h(A)=2.</pre></details></div>
+<div class="exercise"><h3>2.5 Skús sám: inverzia</h3><pre>Nájdi inverziu B=[2 1; 5 3] a over BB⁻¹=I.</pre><details><summary>Postup a riešenie</summary><pre>det B=2·3−1·5=1 ≠ 0.
+B⁻¹=[3 −1; −5 2].
+BB⁻¹=[6−5  −2+2; 15−15  −5+6]=[1 0;0 1].</pre></details></div></section>
+<section id="sustavy"><h2>3. Sústavy lineárnych rovníc</h2><div class="exercise"><h3>3.1 Gaussova eliminácia s tromi neznámymi</h3><pre>x+y+z=6
+2x+y−z=1
+x−y+z=2</pre><details><summary>Postup a riešenie</summary><pre>[1  1  1 | 6; 2 1 −1 | 1; 1 −1 1 | 2]
+R₂ ← R₂−2R₁; R₃ ← R₃−R₁:
+[1 1 1 | 6; 0 −1 −3 | −11; 0 −2 0 | −4]
+R₃ ← R₃−2R₂:
+[1 1 1 | 6; 0 −1 −3 | −11; 0 0 6 | 18]
+6z=18 → z=3; −y−3z=−11 → y=2; x=6−2−3=1.</pre><p>Kontrola: 1+2+3=6; 2+2−3=1; 1−2+3=2.</p></details></div>
+<div class="exercise"><h3>3.2 Žiadne alebo nekonečne veľa riešení?</h3><pre>a) x+y=2; 2x+2y=5.
+b) x+y=2; 2x+2y=4.</pre><details><summary>Postup a riešenie</summary><pre>a) R₂←R₂−2R₁ → [0 0 | 1], čiže 0=1. Žiadne riešenie.
+b) R₂←R₂−2R₁ → [0 0 | 0]. Zvoľ y=t, potom x=2−t.
+Riešenia: (x,y)=(2−t,t), t∈ℝ; je ich nekonečne veľa.</pre><p>Frobeniova veta: v a) sú hodnosti A a [A|b] rôzne; v b) sú rovnaké a menšie ako počet neznámych.</p></details></div>
+<div class="exercise"><h3>3.3 Homogénna sústava</h3><pre>x+y+z=0; 2x+y+3z=0.</pre><details><summary>Postup a riešenie</summary><pre>R₂←R₂−2R₁ → −y+z=0 → y=z.
+Zvoľ z=t. Potom y=t a x=−2t.
+(x,y,z)=t(−2,1,1), t∈ℝ.</pre><p>Pre t=0 dostaneme nulové riešenie; pre t≠0 nenulové riešenia.</p></details></div>
+<div class="exercise"><h3>3.4 Cramerovo pravidlo</h3><pre>2x+y=5; x−y=1.</pre><details><summary>Postup a riešenie</summary><pre>A=[2 1;1 −1]; det A=−2−1=−3.
+A₁=[5 1;1 −1]; det A₁=−5−1=−6 → x=(−6)/(−3)=2.
+A₂=[2 5;1 1]; det A₂=2−5=−3 → y=(−3)/(−3)=1.</pre><p>Pravidlo môžeme použiť, pretože sústava je štvorcová a det A≠0.</p></details></div></section>
+<section id="vektory"><h2>4. Vektorové priestory</h2><div class="exercise"><h3>4.1 Závislosť vektorov</h3><pre>v₁=(1,1,0), v₂=(0,1,1), v₃=(1,2,1). Sú nezávislé?</pre><details><summary>Postup a riešenie</summary><pre>Hľadáme a,b,c: av₁+bv₂+cv₃=0.
+Po súradniciach: a+c=0; a+b+2c=0; b+c=0.
+Zvoľ c=1 → a=−1, b=−1. Stredná rovnica platí.
+−v₁−v₂+v₃=0 s nenulovými koeficientmi → vektory sú závislé.</pre><p>Rovnako vidno v₃=v₁+v₂. Vektory v₁ a v₂ sú nezávislé, preto tvoria bázu ich obalu s dimenziou 2.</p></details></div>
+<div class="exercise"><h3>4.2 Súradnice v báze</h3><pre>B=((1,1),(1,−1)), v=(5,1). Urči [v]ᵦ.</pre><details><summary>Postup a riešenie</summary><pre>Hľadáme α,β: α(1,1)+β(1,−1)=(5,1).
+α+β=5; α−β=1 → 2α=6 → α=3; β=2.
+[v]ᵦ=(3,2).</pre><p>Kontrola: 3(1,1)+2(1,−1)=(5,1). Poradie bázových vektorov určuje poradie súradníc.</p></details></div>
+<div class="exercise"><h3>4.3 Test podpriestoru</h3><pre>Je U={(x,y,z)∈ℝ³ : x+y−z=0} podpriestor?</pre><details><summary>Postup a riešenie</summary><p>Nula patrí do U. Ak u aj v spĺňajú rovnicu, ich súčet ju spĺňa tiež, lebo súčet dvoch núl je nula. Pre ľubovoľný skalár c ju spĺňa aj cu. Preto U je podpriestor.</p><pre>Z rovnice z=x+y: (x,y,z)=x(1,0,1)+y(0,1,1).
+Tieto dva vektory sú nezávislé, takže tvoria bázu U; dim U=2.</pre></details></div></section>
+<section id="relacie"><h2>5. Relácie a zobrazenia</h2><div class="exercise"><h3>5.1 Vlastnosti relácie</h3><pre>A={a,b,c}, R={(a,a),(b,b),(c,c),(a,b),(b,c)}.
+Urči reflexivitu, symetriu, antisymetriu a tranzitivitu.</pre><details><summary>Postup a riešenie</summary><p><b>Reflexívna:</b> áno, všetky diagonálne dvojice sú v R. <b>Symetrická:</b> nie, (a,b) je v R, ale (b,a) chýba. <b>Antisymetrická:</b> áno, pre žiadne dva rôzne prvky neobsahuje obe opačné dvojice. <b>Tranzitívna:</b> nie, (a,b) a (b,c) sú v R, ale (a,c) chýba. Preto nie je ani ekvivalenciou, ani usporiadaním.</p></details></div>
+<div class="exercise"><h3>5.2 Zobrazenie a jeho typ</h3><pre>X={1,2,3,4}, Y={a,b,c}; f={(1,b),(2,c),(3,a),(4,a)}.</pre><details><summary>Postup a riešenie</summary><p>Každý vstup má presne jeden obraz, takže ide o zobrazenie. Každý prvok Y sa vyskytne ako obraz, preto je surjektívne. Nie je injektívne: f(3)=f(4)=a. Nie je bijektívne.</p></details></div></section>
+<section id="struktury"><h2>6. Algebraické štruktúry</h2><div class="exercise"><h3>6.1 Operácia s jedným predpisom</h3><pre>Na ℝ definuj x★y=x+y+1. Urči vlastnosti (ℝ,★).</pre><details><summary>Postup a riešenie</summary><pre>Uzavretosť: x+y+1∈ℝ.
+Komutativita: x+y+1=y+x+1.
+Asociativita: (x★y)★z=x+y+z+2=x★(y★z).
+Neutrálny prvok e: x+e+1=x → e=−1.
+Inverzia y k x: x+y+1=−1 → y=−x−2.
+Záver: abelovská grupa.</pre><p>Kontrola pre x=3: 3★(−5)=−1, čo je neutrálny prvok.</p></details></div>
+<div class="exercise"><h3>6.2 Dve operácie zo staršieho vzorového testu</h3><pre>x⊕y=x+y+½,  x⊙y=x+y+2xy na ℝ.</pre><details><summary>Postup a riešenie</summary><pre>Neutrálny prvok pre ⊕: x+e+½=x → e=−½.
+Inverzný prvok k x pre ⊕: x+y+½=−½ → y=−x−1.
+Jednotka pre ⊙: x+e+2xe=x → e=0.
+Inverzia pre ⊙: x+y+2xy=0 → y=−x/(1+2x), ak x≠−½.</pre><p>Na dôkaz zvyšných vlastností použi bijekciu φ(x)=2x+1. Platí φ(x⊕y)=φ(x)+φ(y) a φ(x⊙y)=φ(x)φ(y). Operácie teda zodpovedajú obvyklým operáciám na ℝ, takže ide o komutatívne teleso. Výnimka pri násobnej inverzii je −½, teda neutrálny prvok prvej operácie.</p></details></div></section>
+<section id="test"><h2>7. Zmiešaný skúšobný test</h2><p>Skús bez nápovedy. Čas si stanov podľa informácií od vyučujúceho; tento test nie je oficiálne zadanie ani odhad bodovania.</p><ol><li>Vypočítaj AB pre A=[1 2;0 1], B=[2 0;3 1].</li><li>Urči determinant a inverznú maticu C=[1 2;2 5].</li><li>Vyrieš x+y+z=6, 2x+y−z=1, x−y+z=2.</li><li>Sú (1,1,0), (0,1,1), (1,2,1) nezávislé?</li><li>Na A={1,2,3} posúď tranzitivitu R={(1,2),(2,3)}.</li><li>Na ℤ₄ over, či je 2 deliteľom nuly.</li></ol><details><summary>Výsledky a stručná kontrola</summary><ol><li>AB=[8 2;3 1].</li><li>det C=1; C⁻¹=[5 −2;−2 1].</li><li>(x,y,z)=(1,2,3).</li><li>Nie: v₃=v₁+v₂.</li><li>Nie: chýba (1,3).</li><li>Áno: 2≠0 a 2·2=0 modulo 4.</li></ol></details><p>Ak sa zasekneš, vráť sa ku konkrétnemu vyriešenému príkladu vyššie a potom test vypočítaj znovu.</p></section></body></html>
